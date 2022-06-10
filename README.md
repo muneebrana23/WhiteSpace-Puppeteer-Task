@@ -1,1 +1,0 @@
-# vipasya-code-test

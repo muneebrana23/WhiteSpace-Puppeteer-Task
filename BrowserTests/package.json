@@ -1,0 +1,24 @@
+{
+  "name": "puppetumber",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "tsc": "tsc",
+    "cucumber-js": "cucumber-js",
+    "test": "cucumber-js -f json:cucumber-report.json",
+    "report": "node report.js"
+  },
+  "author": "lezhumain",
+  "license": "ISC",
+  "devDependencies": {
+    "@cucumber/cucumber": "^7.3.1",
+    "chai": "^4.3.4",
+    "cucumber-html-reporter": "^5.5.0",
+    "cucumber-pretty": "^6.0.0",
+    "properties-reader": "^2.2.0",
+    "puppeteer": "^11.0.0",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.4.4"
+  }
+}
