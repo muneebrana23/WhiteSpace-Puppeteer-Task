@@ -1,6 +1,7 @@
 # code-test
 
 ### Requirements:
+Webstorm IDE (30 days trails)/ VSCode
 NodeJs and npm installed
 
 ### Install packages:
