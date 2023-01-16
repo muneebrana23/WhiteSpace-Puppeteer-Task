@@ -19,7 +19,7 @@ Given("I navigate to angular website", async function() {
     this.page.goto("https://angular.io/");
 });
 
-Given("I click the FEATURES button", async function() {
-    await this.page.waitForXPath("//span[contains(text(), 'Features')]", {visible: true})
+Given("I click the LEARN MORE button", async function() {
+    await this.page.waitForXPath("//a[contains (text(), 'Learn more')]", {visible: true})
         .then(button => button.click());
 });
