@@ -6,28 +6,28 @@ Feature: Training feature
   @training_0
   Scenario: Test angular features button
     Given I navigate to angular website
-    And I click the FEATURES button
-      Then the text FEATURES & BENEFITS is displayed
+    And I click the LEARN MORE button
+      Then the text ANGULAR FEATURES is displayed
 
   @training_01
   Scenario: Test angular features button 1
     Given I navigate to angular website
-    And I click the FEATURES button
-    Then the text FEATURES & BENEFITS is displayed
-    And the section Cross Platform is displayed
-    And the section Speed and Performance is displayed
-    And the section Productivity is displayed
+    And I click the LEARN MORE button
+    Then the text ANGULAR FEATURES is displayed
+    And the section ANY APP SIZE is displayed
+    And the section A GREAT COMMUNITY is displayed
+    And the section BUILD PRODUCTIVELY is displayed
 
   @training_02
   Scenario: Test angular features button 2
     Given I navigate to angular website
-    And I click the FEATURES button
-    Then the text FEATURES & BENEFITS is displayed
+    And I click the LEARN MORE button
+    Then the text ANGULAR FEATURES is displayed
     And the section texts are displayed
-      | sectionText           |
-      | Cross Platform        |
-      | Speed and Performance |
-      | Productivity          |
+      | sectionText        |
+      | ANY APP SIZE       |
+      | A GREAT COMMUNITY  |
+      | BUILD PRODUCTIVELY |
 
 
   @training_1
@@ -44,7 +44,7 @@ Feature: Training feature
 
     Examples:
       | tabButton | title                            |
-      | Features  | Features & Benefits              |
+      | Learn More| Angular Features                 |
       | Docs      | Introduction to the Angular Docs |
 
   @training_3
