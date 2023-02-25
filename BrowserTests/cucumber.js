@@ -10,5 +10,6 @@ let common = [
 ].join(' ');
 
 module.exports = {
-    default: common
+    default: common,
+    
 };

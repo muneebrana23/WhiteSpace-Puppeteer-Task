@@ -7,7 +7,7 @@ Feature: Training feature
   Scenario: Test angular features button
     Given I navigate to angular website
     And I click the LEARN MORE button
-      Then the text ANGULAR FEATURES is displayed
+    Then the text ANGULAR FEATURES is displayed
 
   @training_01
   Scenario: Test angular features button 1
@@ -71,3 +71,6 @@ Feature: Training feature
       | Protractor | Some results |
       | Test       | Some results |
       | a          | Some results |
+      
+   
+     
