@@ -19,12 +19,12 @@ BeforeAll(async () => {
 });
 
 AfterAll(async function() {
-  await page.waitFor(2000);
-  await browser.close();
+  await page.waitFor(2000)
+  await browser.close()
 });
 
 Given("I navigate to angular website", async function() {
-  page.goto("https://angular.io/", { waitUntil: 'networkidle0' });
+  page.goto("https://angular.io/", { waitUntil: 'networkidle0' })
 });
 
 Given("I click the LEARN MORE button", async function() {
@@ -34,21 +34,21 @@ Given("I click the LEARN MORE button", async function() {
 Then("the text ANGULAR FEATURES is displayed", async function() {
   const CssSelector="#angular-features";
   const Expectedtitle="Angular features";
-  const Actualtitle= await getCssSelectorText(CssSelector);
-  expect(Actualtitle).to.equal(Expectedtitle.toLowerCase());
+  const Actualtitle= await getCssSelectorText(CssSelector)
+  expect(Actualtitle).to.equal(Expectedtitle.toLowerCase())
 });
 
 Then("the section texts are displayed", async function(dataTable) {
-  const sectionTextElements = await page.$$('.text-headline');
+  const sectionTextElements = await page.$$('.text-headline')
   const AllsectionTexts = [];  
   for (let i = 0; i < sectionTextElements.length; i++) {
     const text = await sectionTextElements[i].evaluate(element => element.textContent.toLowerCase());
-    AllsectionTexts.push(text);
+    AllsectionTexts.push(text)
   }
 
   dataTable.hashes().forEach((element,index) => {
-    expect(AllsectionTexts[index]).to.equal(element.sectionText.toLowerCase());
-  });
+    expect(AllsectionTexts[index]).to.equal(element.sectionText.toLowerCase())
+  })
 });
 
 Given("I click the {string} button", async function(tabButton) {
@@ -63,43 +63,43 @@ Then("the text {string} is displayed", async function(title) {
   if(title=="Angular Features"){
     const CssSelector="#angular-features";
     const Expectedtitle=title.toLowerCase();
-    const Actualtitle= await getCssSelectorText(CssSelector);
+    const Actualtitle= await getCssSelectorText(CssSelector)
     expect(Actualtitle).to.equal(Expectedtitle);
   } else if(title=="Introduction to the Angular Docs"){
     const CssSelector="h1#introduction-to-the-angular-docs";
-    const Expectedtitle=title.toLowerCase();
-    const Actualtitle= await getCssSelectorText(CssSelector);
-    expect(Actualtitle).to.equal(Expectedtitle);
+    const Expectedtitle=title.toLowerCase()
+    const Actualtitle= await getCssSelectorText(CssSelector)
+    expect(Actualtitle).to.equal(Expectedtitle)
   }
 });
 
 Given("I search for text {string}", async function(searchTerm) {
-  await page.waitForSelector("[aria-label='search']");
-  await page.type("[aria-label='search']", searchTerm);
+  await page.waitForSelector("[aria-label='search']")
+  await page.type("[aria-label='search']", searchTerm)
 });
 
 Then("{string} found", async function(searchResult) {
   if(searchResult=="No result"){
     const xpathSelector="//p[@class='no-results'][contains(text(),'No results found')]";
-    const ActualResult= await getXpathText(xpathSelector);
-    expect(ActualResult).to.include(searchResult);
+    const ActualResult= await getXpathText(xpathSelector)
+    expect(ActualResult).to.include(searchResult)
   } else if(searchResult=="Some results"){
     const expectedResult="api";
     const xpathSelector="(//h3[@class='search-section-header'])[1]";
-    const ActualResult= await getXpathText(xpathSelector);
+    const ActualResult= await getXpathText(xpathSelector)
     expect(ActualResult).to.include(expectedResult);
   }
 });
 
 async function getXpathText(xpathSelector) {
-  await page.waitForXPath(xpathSelector);
-  const [element] = await page.$x(xpathSelector);
-  const ActualResult = await page.evaluate(element => element.textContent, element);
+  await page.waitForXPath(xpathSelector)
+  const [element] = await page.$x(xpathSelector)
+  const ActualResult = await page.evaluate(element => element.textContent, element)
   return ActualResult;
-}
+};
 
 async function getCssSelectorText(CssSelector) {
-  await page.waitForSelector(CssSelector);
-  const ActualResult = await page.$eval(CssSelector, el => el.innerText.toLowerCase());
+  await page.waitForSelector(CssSelector)
+  const ActualResult = await page.$eval(CssSelector, el => el.innerText.toLowerCase())
   return ActualResult;
-}
+};
